@@ -1,38 +1,28 @@
 # ft_containers
-## Research
-- http://www.cplusplus.com/reference/stl/
-- https://thispointer.com/difference-between-vector-and-list-in-c/
-- https://www.youtube.com/watch?v=qvZGUFHWChY
-- https://www.geeksforgeeks.org/difference-between-stack-and-queue-data-structures/
 
+Reimplementaion of C++98 STL containers.
 
-## How does containers work?
+## Project goals
 
-### vector
-Vector work with a dynamic array: new T[size].
-_container is the array containing objects.
-_container_size is the size of _container in memory.
-_container_length is the number of elements in the array.
+* Deeply understand containers structure, explore member types and functions
+* Implement iterator system for each container type (where applicable)
+* Produce tests, compare outputs and performance with original STL containers
+* Use friend keyword for non-member overloads
 
-### map
-Map is an associative array (key => value). It cannot have two pairs with the same key.
-We can use std::pair to store a pair key/value.
-It's implemented using a binary search tree.
-The difficulty here could be the end() iterator. You need to come back in the tree with --end(), so a NULL pointer may not be sufficient.
+### Container list
 
-My solution was to create a binary tree like that:
-```
-    (root)
-    /     \
-  (tree) (end())
-         /
-      (tree)
-```
-So end() is always the biggest value in the tree.
+1. Vector
+2. Map
+3. Stack adaptor based on Vector (1) implementation
 
-Another tricky part is to find the successor of a node in the tree.
-You can search for "successor / predecessor in binary search tree".
+### Technical requirements
 
-### stack
-Stack is a LIFO container. It can be built with other containers, such as list.
-We'll use a private property that will be a container (list by default), but it can be specified during instanciation.
+* The coding language is C++98.
+* The namespaces will be ft and all containers will be tested using ft::<container>.
+* You cannot implement more public functions than the ones offered in the standard containers. Everything else must be private or protected. Each public function variable must be justified.
+* You must use std::allocator
+* For non-member overloads, the keyword friend is allowed.
+
+## Useful links
+
+* Good presentation on [iterators](https://home.csulb.edu/~pnguyen/cecs282/lecnotes/iterators.pdf)
